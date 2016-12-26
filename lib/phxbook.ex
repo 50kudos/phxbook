@@ -9,7 +9,7 @@ defmodule Phxbook do
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      # supervisor(Phxbook.Repo, []),
+      supervisor(Phxbook.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Phxbook.Endpoint, []),
       # Start your own worker by calling: Phxbook.Worker.start_link(arg1, arg2, arg3)
