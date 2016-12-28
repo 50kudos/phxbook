@@ -36,6 +36,7 @@ defmodule Phxbook.Web do
 
       import Phxbook.Router.Helpers
       import Phxbook.Gettext
+      import Phxbook.Auth, only: [authenticate_user: 2]
     end
   end
 
@@ -58,6 +59,8 @@ defmodule Phxbook.Web do
   def router do
     quote do
       use Phoenix.Router
+
+      import Phxbook.Auth, only: [authenticate_user: 2]
     end
   end
 
