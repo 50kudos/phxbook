@@ -16,6 +16,7 @@ defmodule Phxbook.User do
     model
     |> cast(params, ~w(name username))
     |> validate_required([:username])
+    |> unique_constraint(:username)
     |> validate_length(:username, min: 1, max: 20)
   end
 

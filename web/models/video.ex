@@ -6,6 +6,7 @@ defmodule Phxbook.Video do
     field :title, :string
     field :description, :string
     belongs_to :user, Phxbook.User
+    belongs_to :category, Phxbook.Category
 
     timestamps()
   end
@@ -15,7 +16,8 @@ defmodule Phxbook.Video do
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:url, :title, :description])
+    |> cast(params, [:url, :title, :description, :category_id])
     |> validate_required([:url, :title, :description])
+    |> assoc_constraint(:category)
   end
 end
