@@ -26,6 +26,7 @@ defmodule Phxbook.ConnCase do
       import Ecto.Query
 
       import Phxbook.Router.Helpers
+      import Phxbook.TestHelpers
 
       # The default endpoint for testing
       @endpoint Phxbook.Endpoint
