@@ -7,8 +7,10 @@ defmodule Phxbook.Video do
     field :title, :string
     field :description, :string
     field :slug, :string
+
     belongs_to :user, Phxbook.User
     belongs_to :category, Phxbook.Category
+    has_many :annotations, Phxbook.Annotation
 
     timestamps()
   end
