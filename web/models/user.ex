@@ -11,7 +11,7 @@ defmodule Phxbook.User do
     has_many :videos, Phxbook.Video
     has_many :annotations, Phxbook.Annotation
 
-    timestamps
+    timestamps()
   end
 
   def changeset(model, params \\ :invalid) do

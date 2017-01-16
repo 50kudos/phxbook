@@ -12,6 +12,7 @@ defmodule Phxbook do
       supervisor(Phxbook.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Phxbook.Endpoint, []),
+      supervisor(Phxbook.InfoSys.Supervisor, [])
       # Start your own worker by calling: Phxbook.Worker.start_link(arg1, arg2, arg3)
       # worker(Phxbook.Worker, [arg1, arg2, arg3]),
     ]
