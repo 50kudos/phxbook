@@ -46,7 +46,7 @@ defmodule Phxbook.VideoChannel do
   end
 
   defp compute_additional_info(annotation, socket) do
-    for result <- Phxbook.InfoSys.compute(annotation.body, limit: 1, timeout: 10_000) do
+    for result <- InfoSys.Application.compute(annotation.body, limit: 1, timeout: 10_000) do
       attrs = %{url: result.url, body: result.text, at: annotation.at}
       info_changeset =
         Repo.get_by!(Phxbook.User, username: result.backend)

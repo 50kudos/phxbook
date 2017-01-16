@@ -4,6 +4,10 @@ defmodule Phxbook.Mixfile do
   def project do
     [app: :phxbook,
      version: "0.0.1",
+     build_path: "../../_build",
+     config_path: "../../config/config.exs",
+     deps_path: "../../deps",
+     lockfile: "../../mix.lock",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -19,7 +23,7 @@ defmodule Phxbook.Mixfile do
   def application do
     [mod: {Phxbook, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :comeonin]]
+                    :phoenix_ecto, :postgrex, :comeonin, :info_sys]]
   end
 
   # Specifies which paths to compile per environment.
@@ -39,7 +43,7 @@ defmodule Phxbook.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:comeonin, "~> 3.0"},
-     {:sweet_xml, "~> 0.6.3"}]
+     {:info_sys, in_umbrella: true}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
