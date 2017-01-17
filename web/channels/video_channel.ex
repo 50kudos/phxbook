@@ -38,6 +38,12 @@ defmodule Phxbook.VideoChannel do
     end
   end
 
+  intercept ["new_annotation"]
+  def handle_out("new_annotation", msg, socket) do
+    push socket, "new_annotation", Map.merge(msg, %{is_editable: true})
+    {:noreply, socket}
+  end
+
   defp broadcast_annotation(socket, annotation) do
     annotation = Repo.preload(annotation, :user)
     rendered_ann = Phxbook.AnnotationView.render("annotations.json", %{annotation: annotation})
